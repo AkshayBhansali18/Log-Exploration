@@ -1,14 +1,12 @@
 package main
 
 import (
-	"logexplorationapi/pkg1/elastic"
-	"logexplorationapi/pkg1/logscontroller"
+	"logexplorationapi/pkg/routes"
+    "github.com/gin-gonic/gin"
 )
 
 func main() {
 
-	repository := elastic.NewElasticRepository()
-	router := logscontroller.NewLogsController(repository)
-	router.Run()
-
+	r := routes.SetUpRouter() //initialise
+	r.Run() //run server on port 8080
 }
